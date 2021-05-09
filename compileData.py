@@ -327,7 +327,7 @@ while totalNumberOfEntries < entriesCap:
 	for entryNumber in range(0,dataTree.GetEntries()):       
 		## Timid progress check
 		if totalNumberOfEntries % 1000 == 0:
-    			print("Processing entry", totalNumberOfEntries, "...")
+			print("Processing entry", totalNumberOfEntries, "...")
         
 		## For each entry, store wanted branches
 		dataTree.GetEntry(entryNumber)
@@ -340,7 +340,7 @@ while totalNumberOfEntries < entriesCap:
 			## Pick first value if there's more than one
 			## There has to be a better way to do this check, but this works
 			if str(type(currentValue)) == "<class 'cppyy.LowLevelView'>":
-    				if len(currentValue) == 0:
+				if len(currentValue) == 0:
 					dictionaryOfBranchValues[wantedBranch] = np.nan
 				else:
 					dictionaryOfBranchValues[wantedBranch] = currentValue[0]
