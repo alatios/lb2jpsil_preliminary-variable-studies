@@ -312,7 +312,7 @@ wantedBranches = [
 ]
 
 totalNumberOfEntries = 0
-entriesCap = 3e5 # How many entries do we want (roughly)?
+entriesCap = 2e5 # How many entries do we want (roughly)?
 currentFileIndex = 0
 #completeDF = pd.DataFrame(columns=wantedBranches)
 
@@ -358,5 +358,5 @@ while totalNumberOfEntries < entriesCap:
 	currentFileIndex += 1
 
 completeDF = pd.DataFrame.from_dict(dictionaryList)
-h5File = "data/Cusom_LHCbData_2016_MagUpDown_Dimuon_Ttracks.h5";
+h5File = "data/Custom_LHCbData_2016_MagUpDown_Dimuon_Ttracks.h5";
 completeDF.to_hdf(h5File, "LHCbData");
