@@ -314,7 +314,10 @@ wantedBranches = [
 totalNumberOfEntries = 0
 entriesCap = 3e5 # How many entries do we want (roughly)?
 currentFileIndex = 0
-completeDF = pd.DataFrame(columns=wantedBranches)
+#completeDF = pd.DataFrame(columns=wantedBranches)
+
+## Let's try a faster way
+dictionaryList = []
 
 ## Build the data frame
 while totalNumberOfEntries < entriesCap:
@@ -348,10 +351,12 @@ while totalNumberOfEntries < entriesCap:
 				dictionaryOfBranchValues[wantedBranch] = currentValue
 
 		## Fill the DF row by row
-		completeDF.loc[totalNumberOfEntries] = dictionaryOfBranchValues
+		#completeDF.loc[totalNumberOfEntries] = dictionaryOfBranchValues
+		dictionaryList.append(dictionaryOfBranchValues)
 		totalNumberOfEntries += 1
     
 	currentFileIndex += 1
 
+completeDF = pd.DataFrame.from_dict(dictionaryList)
 h5File = "data/LHCbData_2016_MagUpDown_Dimuon_Ttracks.h5";
 completeDF.to_hdf(h5File, "LHCbData");
