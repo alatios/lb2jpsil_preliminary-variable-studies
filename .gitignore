@@ -116,3 +116,7 @@ dmypy.json
 
 # Data symlink
 data
+
+# Plots
+plots/
+plots_DTFSuccess/
